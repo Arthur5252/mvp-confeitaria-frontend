@@ -25,13 +25,11 @@ export default function Dashboard() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    api
-      .listProducts()
-      .then((data) => {
-        setProducts(data)
-        if (data.length > 0) setProductId(String(data[0].id))
-      })
-      .catch((err) => setError(err.message))
+    // Não pré-seleciona um produto automaticamente: com muitos produtos
+    // cadastrados (cada etiqueta escaneada pode virar um produto novo), o
+    // "primeiro da lista" raramente é o que a pessoa quer comparar, e
+    // escolher por ela silenciosamente só confundia.
+    api.listProducts().then(setProducts).catch((err) => setError(err.message))
     api.insights().then(setInsights).catch(() => {})
   }, [])
 
@@ -66,6 +64,7 @@ export default function Dashboard() {
 
       <label>Produto</label>
       <select value={productId} onChange={(e) => setProductId(e.target.value)}>
+        <option value="">Selecione um produto...</option>
         {products.map((p) => (
           <option key={p.id} value={p.id}>
             {p.name}
@@ -78,6 +77,9 @@ export default function Dashboard() {
         <p className="muted">
           Nenhum produto ainda — escaneie etiquetas para começar a popular o dashboard.
         </p>
+      )}
+      {products.length > 0 && !productId && (
+        <p className="muted">Escolha um produto acima para ver os gráficos.</p>
       )}
 
       {productId && (
