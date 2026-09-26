@@ -1,19 +1,19 @@
 # Orquestra os dois componentes desenvolvidos do MVP (Interface + API) para
 # facilitar a demonstração/execução local e no notebook de hospedagem.
-# Requer o repositório confeitaria-backend clonado como pasta irmã:
+# Requer o repositório do backend clonado como pasta irmã:
 #
 #   projeto/
-#     confeitaria-frontend/   <- este repositório (contém este arquivo)
-#     confeitaria-backend/
+#     frontend/   <- este repositório (contém este arquivo)
+#     backend/
 #
 services:
   backend:
     build:
-      context: ../confeitaria-backend
+      context: ../backend
     ports:
       - "8000:8000"
     env_file:
-      - ../confeitaria-backend/.env
+      - ../backend/.env
     volumes:
       - backend-data:/app/data
     restart: unless-stopped
