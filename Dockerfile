@@ -8,8 +8,8 @@ RUN npm install
 COPY . .
 
 # Vite embute as variáveis VITE_* no bundle em tempo de build.
-ARG VITE_API_URL=http://localhost:8000
-ENV VITE_API_URL=$VITE_API_URL
+ARG VITE_URL_API=http://localhost:8000
+ENV VITE_URL_API=$VITE_URL_API
 
 RUN npm run build
 

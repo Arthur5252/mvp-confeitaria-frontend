@@ -1,6 +1,6 @@
 # Confeitaria — Frontend
 
-Interface web mobile-first (PWA) para gestão de compras de uma confeitaria: criação de listas de compras, leitura automática de etiquetas de mercado via foto (OCR), comparação de preços entre fornecedores e dashboard de variação de preços ao longo do tempo.
+Interface web mobile-first (PWA) para gestão de compras de uma confeitaria: criação de listas de compras, leitura automática de etiquetas de mercado via foto (OCR), comparação de preços entre fornecedores e painel de variação de preços ao longo do tempo.
 
 Este repositório é o módulo **"Interface"** do MVP de componentização/microsserviços. O módulo de API está no repositório [`confeitaria-backend`](https://github.com/SEU_USUARIO/confeitaria-backend).
 
@@ -29,11 +29,11 @@ O frontend consome exclusivamente a API própria (`confeitaria-backend`), que po
 
 ## Funcionalidades
 
-- **Login** simples (single-user), token JWT emitido pelo backend.
+- **Login** simples (usuário único), token JWT emitido pelo backend.
 - **Listas de compras**: criar, listar por data, abrir, marcar itens como comprados.
 - **Escanear etiqueta**: tira foto pela câmera do celular → backend lê o texto (OCR) → tela de confirmação/edição do nome, preço e quantidade mínima (para preços de atacado) → salva o registro de preço e risca o item da lista.
 - **Fornecedores**: cadastro simples de mercados/atacadistas.
-- **Dashboard**: comparação de preços entre fornecedores para um produto e gráfico de variação de preço ao longo do tempo, além de insights automáticos.
+- **Painel**: comparação de preços entre fornecedores para um produto e gráfico de variação de preço ao longo do tempo, além de destaques automáticos.
 - **PWA**: instalável na tela inicial do celular para acesso rápido à câmera no mercado.
 
 ## Stack
@@ -46,7 +46,7 @@ Requer Node.js 20+.
 
 ```bash
 npm install
-cp .env.example .env   # ajuste VITE_API_URL se o backend não estiver em localhost:8000
+cp .env.example .env   # ajuste VITE_URL_API se o backend não estiver em localhost:8000
 npm run dev
 ```
 

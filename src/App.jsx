@@ -1,34 +1,34 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { AuthProvider } from './context/AuthContext'
-import ProtectedRoute from './components/ProtectedRoute'
-import Layout from './components/Layout'
-import Login from './pages/Login'
-import ShoppingLists from './pages/ShoppingLists'
-import ShoppingListDetail from './pages/ShoppingListDetail'
-import ScanLabel from './pages/ScanLabel'
-import Suppliers from './pages/Suppliers'
-import Dashboard from './pages/Dashboard'
+import { ProvedorAutenticacao } from './contexto/ContextoAutenticacao'
+import RotaProtegida from './componentes/RotaProtegida'
+import Estrutura from './componentes/Estrutura'
+import Login from './paginas/Login'
+import ListasCompras from './paginas/ListasCompras'
+import DetalheListaCompras from './paginas/DetalheListaCompras'
+import EscanearEtiqueta from './paginas/EscanearEtiqueta'
+import Fornecedores from './paginas/Fornecedores'
+import Painel from './paginas/Painel'
 
 export default function App() {
   return (
-    <AuthProvider>
+    <ProvedorAutenticacao>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/entrar" element={<Login />} />
         <Route
           element={
-            <ProtectedRoute>
-              <Layout />
-            </ProtectedRoute>
+            <RotaProtegida>
+              <Estrutura />
+            </RotaProtegida>
           }
         >
-          <Route path="/lists" element={<ShoppingLists />} />
-          <Route path="/lists/:id" element={<ShoppingListDetail />} />
-          <Route path="/scan" element={<ScanLabel />} />
-          <Route path="/suppliers" element={<Suppliers />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/listas" element={<ListasCompras />} />
+          <Route path="/listas/:id" element={<DetalheListaCompras />} />
+          <Route path="/escanear" element={<EscanearEtiqueta />} />
+          <Route path="/fornecedores" element={<Fornecedores />} />
+          <Route path="/painel" element={<Painel />} />
         </Route>
-        <Route path="*" element={<Navigate to="/lists" replace />} />
+        <Route path="*" element={<Navigate to="/listas" replace />} />
       </Routes>
-    </AuthProvider>
+    </ProvedorAutenticacao>
   )
 }
