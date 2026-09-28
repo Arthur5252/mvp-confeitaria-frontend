@@ -1,5 +1,5 @@
 # Orquestra os dois componentes desenvolvidos do MVP (Interface + API) para
-# facilitar a demonstração/execução local e no notebook de hospedagem.
+# facilitar a demonstração e a execução local.
 # Requer o repositório do backend clonado como pasta irmã:
 #
 #   projeto/
