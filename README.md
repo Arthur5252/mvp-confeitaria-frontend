@@ -10,6 +10,7 @@ Este repositório é o módulo **"Interface"** (componente principal) do MVP de 
 - [API externa utilizada](#api-externa-utilizada-ocrspace)
 - [Chamadas da interface à API](#chamadas-da-interface-à-api)
 - [Funcionalidades](#funcionalidades)
+- [Acesso para avaliação](#acesso-para-avaliação)
 - [Instalação e execução](#instalação-e-execução)
 - [Estrutura de pastas](#estrutura-de-pastas)
 
@@ -74,6 +75,17 @@ A interface usa os quatro tipos de método HTTP. Todas as chamadas, exceto o log
 
 Stack: React, Vite, React Router, Recharts (gráficos) e `vite-plugin-pwa`.
 
+## Acesso para avaliação
+
+Usuário e senha para entrar na aplicação (já vêm no arquivo `backend/.env.example`):
+
+| Campo | Valor |
+|---|---|
+| Usuário | `avaliador` |
+| Senha | `confeitaria123` |
+
+São credenciais apenas de demonstração. Em uso real, troque `SENHA_APP` e `SEGREDO_JWT` no `.env` por valores próprios.
+
 ## Instalação e execução
 
 ### Com Docker Compose (frontend + backend juntos)
@@ -93,7 +105,7 @@ Requisitos: [Docker Desktop](https://docs.docker.com/desktop/) (no Windows, com 
    cp backend/.env.example backend/.env
    ```
 
-3. Edite `backend/.env`: preencha `CHAVE_API_OCR_SPACE` e troque `SENHA_APP` e `SEGREDO_JWT` por valores próprios.
+3. Edite `backend/.env` e preencha `CHAVE_API_OCR_SPACE` com a sua chave gratuita do OCR.space (sem ela o escaneamento de etiquetas não funciona). O usuário e a senha de avaliação já estão no arquivo.
 
 4. Suba os containers a partir da pasta do frontend:
 
@@ -109,7 +121,7 @@ Requisitos: [Docker Desktop](https://docs.docker.com/desktop/) (no Windows, com 
    | Aplicação | http://localhost:5173 |
    | Swagger da API | http://localhost:8000/docs |
 
-6. Entre com o usuário e a senha definidos em `USUARIO_APP` e `SENHA_APP`.
+6. Entre com o usuário `avaliador` e a senha `confeitaria123`.
 
 Dados de demonstração (opcional, apaga os dados existentes):
 
