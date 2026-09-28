@@ -37,7 +37,7 @@ Estratégia de comunicação:
 | Serviço | [OCR.space](https://ocr.space/ocrapi) — reconhecimento de texto (OCR) em imagens |
 | Custo | Plano gratuito, sem cartão de crédito. Confira os limites atuais na [página da API](https://ocr.space/ocrapi) |
 | Licença | Serviço online proprietário, usado conforme os termos de uso do OCR.space. O projeto não inclui código de terceiros |
-| Cadastro | Necessário: chave gratuita em https://ocr.space/ocrapi/freekey, configurada no backend (variável `CHAVE_API_OCR_SPACE`) |
+| Cadastro | Necessário para uso próprio: chave gratuita em https://ocr.space/ocrapi/freekey, configurada no backend (`CHAVE_API_OCR_SPACE`). O `.env.example` do backend já traz uma chave de avaliação |
 | Rota utilizada | `POST https://api.ocr.space/parse/image` |
 
 Parâmetros enviados (multipart/form-data): `file` (a imagem), `apikey`, `language=por`, `OCREngine=2`, `scale=true` e `isTable=false`. Da resposta são usados `ParsedResults[0].ParsedText` (texto reconhecido), `IsErroredOnProcessing` e `ErrorMessage`.
@@ -105,7 +105,7 @@ Requisitos: [Docker Desktop](https://docs.docker.com/desktop/) (no Windows, com 
    cp backend/.env.example backend/.env
    ```
 
-3. Edite `backend/.env` e preencha `CHAVE_API_OCR_SPACE` com a sua chave gratuita do OCR.space (sem ela o escaneamento de etiquetas não funciona). O usuário e a senha de avaliação já estão no arquivo.
+3. Não é preciso editar nada para avaliar: o `backend/.env` já vem com o usuário, a senha e uma chave do OCR.space de avaliação.
 
 4. Suba os containers a partir da pasta do frontend:
 
